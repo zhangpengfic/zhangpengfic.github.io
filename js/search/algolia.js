@@ -159,7 +159,8 @@ window.addEventListener('load', () => {
     }
   })
 
-  search.addWidgets([configure, searchBox, hits, stats, powerBy, pagination]) // add the widgets to the instantsearch instance
+  // search.addWidgets([configure, searchBox, hits, stats, powerBy, pagination]) // add the widgets to the instantsearch instance
+  search.addWidgets([configure, searchBox, hits, stats, pagination]) 
 
   search.start()
 

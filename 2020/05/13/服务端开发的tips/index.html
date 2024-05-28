@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>服务端开发的tips | 数字化区块时代</title><meta name="author" content="Alfred Zhang"><meta name="copyright" content="Alfred Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ripro破解主题无后门https:&#x2F;&#x2F;www.902d.com&#x2F;6743.html注意⚠️什么是后门！&#x2F;www&#x2F;wwwroot&#x2F;www.alfredzhang.tk&#x2F;wp-content&#x2F;themes&#x2F;ripro7.2&#x2F;inc&#x2F;class&#x2F;core.class.7.3.php   这个文件存在后门使用http(s):&#x2F;&#x2F;你的域名&#x2F;?ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端开发的tips">
+<meta property="og:url" content="http://git.bt-coin.top/2020/05/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/index.html">
+<meta property="og:site_name" content="数字化区块时代">
+<meta property="og:description" content="ripro破解主题无后门https:&#x2F;&#x2F;www.902d.com&#x2F;6743.html注意⚠️什么是后门！&#x2F;www&#x2F;wwwroot&#x2F;www.alfredzhang.tk&#x2F;wp-content&#x2F;themes&#x2F;ripro7.2&#x2F;inc&#x2F;class&#x2F;core.class.7.3.php   这个文件存在后门使用http(s):&#x2F;&#x2F;你的域名&#x2F;?ht">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-05-13T03:17:53.000Z">
+<meta property="article:modified_time" content="2024-05-28T03:35:19.484Z">
+<meta property="article:author" content="Alfred Zhang">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://git.bt-coin.top/2020/05/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3022945164825226',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"MOYOVBI0ZH","apiKey":"eb61ade71769c769d7d10653b1cb522b","indexName":"dev_alfred","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '服务端开发的tips',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 11:35:19'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/download/"><i class="fa-fw fas fa-download"></i><span> Download</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="数字化区块时代"><span class="site-name">数字化区块时代</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/download/"><i class="fa-fw fas fa-download"></i><span> Download</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">服务端开发的tips</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-05-13T03:17:53.000Z" title="Created 2020-05-13 11:17:53">2020-05-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-28T03:35:19.484Z" title="Updated 2024-05-28 11:35:19">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="服务端开发的tips"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ripro破解主题无后门"><a href="#ripro破解主题无后门" class="headerlink" title="ripro破解主题无后门"></a>ripro破解主题无后门</h1><p><a target="_blank" rel="noopener" href="https://www.902d.com/6743.html">https://www.902d.com/6743.html</a><br>注意⚠️什么是后门！<br>&#x2F;www&#x2F;wwwroot&#x2F;<a target="_blank" rel="noopener" href="http://www.alfredzhang.tk/wp-content/themes/ripro7.2/inc/class/core.class.7.3.php">www.alfredzhang.tk/wp-content/themes/ripro7.2/inc/class/core.class.7.3.php</a>   这个文件存在后门使用http(s):&#x2F;&#x2F;你的域名&#x2F;?<a target="_blank" rel="noopener" href="https://www.alfredzhang.tk/?backdoor=go">https://www.alfredzhang.tk/?backdoor=go</a><br>访问，自动创建用户名为backdoor密码为123456的管理员账户 </p>
+<h1 id="七牛云CDN开启打开防盗链后的特征"><a href="#七牛云CDN开启打开防盗链后的特征" class="headerlink" title="七牛云CDN开启打开防盗链后的特征"></a>七牛云CDN开启打开防盗链后的特征</h1><p>如果全部生效后，复制的”内容管理“文件外链时就是：<a target="_blank" rel="noopener" href="http://www.bbb.com/xxx.jpg%EF%BC%8C%E6%94%BE%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E6%98%BE%E7%A4%BA403%E9%94%99%E8%AF%AF%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E7%9B%AE%E7%9A%84%E8%BE%BE%E5%88%B0%E4%BA%86%EF%BC%89%EF%BC%8C%E8%80%8C%E8%BE%93%E5%85%A5%EF%BC%9Ahttp://www.aaa.com/share?url=http://www.bbb.com/xxx.jpg">http://www.bbb.com/xxx.jpg，放到浏览器会显示403错误（浏览器不能访问目的达到了），而输入：http://www.aaa.com/share?url=http://www.bbb.com/xxx.jpg</a> 可以访问（白名单有的域名都可以访问，<a target="_blank" rel="noopener" href="http://www.ccc.com/share?url=http://www.bbb.com/xxx.jpg">http://www.ccc.com/share?url=http://www.bbb.com/xxx.jpg</a> 是访问不到的，还是403，因为<a target="_blank" rel="noopener" href="http://www.ccc.com没在白名单里面).当加速域名配好后,图片的下载速度也会增加一些./">www.ccc.com没在白名单里面）。当加速域名配好后，图片的下载速度也会增加一些。</a><br>但是防止疯狂刷新要怎么解决？如果用<a target="_blank" rel="noopener" href="http://www.aaa.com/share?url=http://www.bbb.com/xxx.jpg">http://www.aaa.com/share?url=http://www.bbb.com/xxx.jpg</a> 还是可以访问到图片，还是可以刷新，关于这个问题的解决方法，我采取在代码中去解决：<br>1.给每张图片的观看次数做限制<br>2.给图片的url加密：<a target="_blank" rel="noopener" href="http://www.aaa.com/share?url=%E6%97%B6%E9%97%B4%E6%88%B3+base64%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%81%BF%E5%85%8D%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9C%8B%E5%88%B0%E5%9B%BE%E7%89%87%E5%90%8D%E7%A7%B0">http://www.aaa.com/share?url=时间戳+base64加密，避免在浏览器中看到图片名称</a></p>
+<h1 id="pip-生成和安装requirements-txt"><a href="#pip-生成和安装requirements-txt" class="headerlink" title="pip 生成和安装requirements.txt"></a>pip 生成和安装requirements.txt</h1><p>生成文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<p>从requirements.txt安装依赖库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<p>当提示权限不够时，前面加上sudo</p>
+<h1 id="安装完nodejs输入：node-v-报错-Segmentation-fault"><a href="#安装完nodejs输入：node-v-报错-Segmentation-fault" class="headerlink" title="安装完nodejs输入：node -v 报错-&gt;Segmentation fault"></a>安装完nodejs输入：node -v 报错-&gt;Segmentation fault</h1><p>原因是软链的位置错误 ,正确的软链位置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /root/node-vxx.xx.x-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line">ln -s /root/node-vxx.xx.x-linux-x64/bin/npm  /usr/local/bin/npm</span><br><span class="line">ln -s /root/node-vxx.xx.x-linux-x64/bin/npm  /usr/local/bin/npx</span><br></pre></td></tr></table></figure>
+
+<h1 id="node环境部署"><a href="#node环境部署" class="headerlink" title="node环境部署"></a>node环境部署</h1><h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><p>1.首先下载NodeJS的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>node的历史版本可以在这里查看 <a target="_blank" rel="noopener" href="https://nodejs.org/dist/">https://nodejs.org/dist/</a></p>
+<p>2.下载后解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf node-v12.14.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>3.解压成功后就是二进制文件，只需要为node和npm建立两个软连接，使之可以全局运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /root/node-v12.14.0-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line">ln -s /root/node-v12.14.0-linux-x64/bin/npm  /usr/local/bin/npm</span><br><span class="line">ln -s /root/node-v12.14.0-linux-x64/bin/npm  /usr/local/bin/npx</span><br></pre></td></tr></table></figure>
+
+<p>其中&#x2F;root&#x2F;node-v12.14.0-linux-x64&#x2F;bin&#x2F; 是你下载node的实际路径</p>
+<p>4.检查是否安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>5.安装yarn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装mongodb（支持CentOS8）"><a href="#安装mongodb（支持CentOS8）" class="headerlink" title="安装mongodb（支持CentOS8）"></a>安装mongodb（支持CentOS8）</h2><p>1.首先下载mongodb的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel80-4.4.0.tgz</span><br></pre></td></tr></table></figure>
+<p>2.下载后解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mongodb-linux-x86_64-rhel80-4.4.0.tgz</span><br></pre></td></tr></table></figure>
+<p>3.使之可以全局运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /root/mongodb-linux-x86_64-rhel80-4.4.0/bin/* /usr/local/bin/  #centos8需要</span><br><span class="line">ln -s /root/mongodb-linux-x86_64-rhel80-4.4.0/bin/* /usr/local/bin/</span><br></pre></td></tr></table></figure>
+<p>4.启动mongodb <em><strong>⚠️每次vps重启后都要再启动一次mongodb</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/lib/mongo</span><br><span class="line">mkdir -p /var/log/mongodb</span><br><span class="line">chown `whoami` /var/lib/mongo</span><br><span class="line">chown `whoami` /var/log/mongodb</span><br><span class="line">mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --fork </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装和使用pm2-进程管理器"><a href="#安装和使用pm2-进程管理器" class="headerlink" title="安装和使用pm2(进程管理器)"></a>安装和使用pm2(进程管理器)</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36850813/article/details/98967807">参考：pm2安装与使用（生产环境部署）</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn global add pm2</span><br><span class="line">npm install pm2 -g //本机和服务器都需安装pm2</span><br><span class="line">ln -s /www/server/nodejs/vx.x.x/bin/pm2 /usr/bin/pm2 //如果pm2找不到路径报错增加软链</span><br></pre></td></tr></table></figure>
+
+<h1 id="部署后台接口项目node-elm"><a href="#部署后台接口项目node-elm" class="headerlink" title="部署后台接口项目node-elm"></a>部署后台接口项目node-elm</h1><h2 id="进入本机项目node-elm路径，执行本机到服务器环境的部署（上线）"><a href="#进入本机项目node-elm路径，执行本机到服务器环境的部署（上线）" class="headerlink" title="进入本机项目node-elm路径，执行本机到服务器环境的部署（上线）"></a>进入本机项目node-elm路径，执行本机到服务器环境的部署（上线）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 deploy ecosystem.config.js production setup</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证nodejs后台接口"><a href="#验证nodejs后台接口" class="headerlink" title="验证nodejs后台接口"></a>验证nodejs后台接口</h2><p>宝塔面板配置一个新的域名网站配置 &#x2F; {:8001端口}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /interface/ &#123;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_pass http://127.0.0.1:8001/; #注意最后/</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        proxy_set_header Host $http_host;</span><br><span class="line">    &#125;</span><br><span class="line">    #proxy_pass http://127.0.0.1:8001/;#有/时转发路径</span><br><span class="line">    =&gt; http://127.0.0.1:8001/interface/v2/index_entry</span><br><span class="line">    #proxy_pass http://127.0.0.1:8001;#无/时转发路径</span><br><span class="line">    =&gt; http://127.0.0.1:8001/v2/index_entry</span><br></pre></td></tr></table></figure>
+<p>修改完记得重启nginx，如下命令验证结果。<em><strong>⚠️每次vps重启后都要再启动一次npm run dev</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /root/mygit/node-elm/source 上传文件后执行&lt;npm install&gt; &lt;npm run dev&gt; </span><br><span class="line">curl http://127.0.0.1:8001/v2/index_entry #本地服务开启验证</span><br><span class="line">https://gnode.alfredzhang.tk/interface/v2/index_entry #远端验证地址（DNS解析服务器IP）注意已经去掉:8001</span><br><span class="line">ss -lntpd #linux查看端口号占用</span><br><span class="line">lsof -i #mac查看端口号占用</span><br></pre></td></tr></table></figure>
+
+<h1 id="部署后台管理项目xk-vue-manage"><a href="#部署后台管理项目xk-vue-manage" class="headerlink" title="部署后台管理项目xk-vue-manage"></a>部署后台管理项目xk-vue-manage</h1><h2 id="进入本机项目xk-vue-manage路径-执行命令，去生成manage目录下的静态页面。"><a href="#进入本机项目xk-vue-manage路径-执行命令，去生成manage目录下的静态页面。" class="headerlink" title="进入本机项目xk-vue-manage路径,执行命令，去生成manage目录下的静态页面。"></a>进入本机项目xk-vue-manage路径,执行命令，去生成manage目录下的静态页面。</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm run build #遇到报错必须先全部解决</span><br></pre></td></tr></table></figure>
+<p>将本地编译出来的manage目录上传到gnode.alfredzhang.tk网站根目录下<br>修改nginx配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root /www/wwwroot/gnode.alfredzhang.tk/manage #网站根目录增加manage文件夹</span><br></pre></td></tr></table></figure>
+<h2 id="上线验证"><a href="#上线验证" class="headerlink" title="上线验证"></a>上线验证</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gnode.alfredzhang.tk/ #验证地址（DNS解析服务器IP）</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="svn最简便总结"><a href="#svn最简便总结" class="headerlink" title="svn最简便总结:"></a>svn最简便总结:</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.mkdir  svn</span><br><span class="line">2.svnadmin create /home/svn/   (上面在哪里建就在哪里)!!!svnadmin create这里就是创建</span><br><span class="line">3.进入svnserver.conf  (必须)</span><br><span class="line">开启authz-db = authz 和 password-db = passwd 和 auth-access = write</span><br><span class="line">开启anon-access = read 且改为none</span><br><span class="line">4.进入passwd 加 root=root</span><br><span class="line">5.进入authz加 [/]和root = rw</span><br><span class="line">6.svnserve -d -r /home/svn      (开启svn服务)</span><br><span class="line">7.cd到放代码的文件夹, 输入 svn co svn://自己的IP地址</span><br><span class="line">8.去阿里云开启3690端口 ( 自己博客里有教程 ) </span><br><span class="line">9.设置hooks自动提交代码到服务器</span><br><span class="line">10.能用了,在自己的电脑输入svn://IP地址  拉取</span><br></pre></td></tr></table></figure>
+
+<p>例子路径：&#x2F;usr&#x2F;local&#x2F;svndata&#x2F;repo&#x2F;design<br>磁盘清理：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/iSun520/p/11189635.html">https://www.cnblogs.com/iSun520/p/11189635.html</a><br>建立svn账号：<br>vim &#x2F;usr&#x2F;local&#x2F;svndata&#x2F;repo&#x2F;design&#x2F;conf&#x2F;passwd<br>vim &#x2F;usr&#x2F;local&#x2F;svndata&#x2F;repo&#x2F;design&#x2F;conf&#x2F;authz</p>
+<h1 id="mysql必须使用flush-privileges的两种情况"><a href="#mysql必须使用flush-privileges的两种情况" class="headerlink" title="mysql必须使用flush privileges的两种情况"></a>mysql必须使用flush privileges的两种情况</h1><p>FLUSH PRIVILEGES<br>1、改密码。<br>2、授权超用户。<br>flush privileges 命令本质上的作用是将当前user和privilige表中的用户信息&#x2F;权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。<br>MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。<br>通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效。而不必冒太大风险。<br>mysql 修改密码后，注意flush privileges。</p>
+<h1 id="php基础"><a href="#php基础" class="headerlink" title="php基础"></a>php基础</h1><h2 id="php端口"><a href="#php端口" class="headerlink" title="php端口"></a>php端口</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1,8417端口：test.phjrxy.cn:8417</span><br><span class="line">api_nginx_rewriter:</span><br><span class="line">rewrite ^/index2_liststock(.+)?$ /index.php?c=index2&amp;a=apiliststock&amp;$1 last;</span><br><span class="line"></span><br><span class="line">2,80端口：test.phjrxy.cn:80</span><br><span class="line">web_nginx_rewriter:</span><br><span class="line">rewrite ^/home_liststockfrompython(.+)?$ /index.php?c=home&amp;a=liststockfrompython&amp;$1 last;</span><br></pre></td></tr></table></figure>
+
+<h2 id="php页面样式"><a href="#php页面样式" class="headerlink" title="php页面样式"></a>php页面样式</h2><p>无论哪个端口结果要做成接口的形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">controller:</span><br><span class="line">&#x27;apiliststock&#x27;=&gt;1,//这里数字无所谓好阅读而已</span><br><span class="line"></span><br><span class="line">public function apiListStockAction()&#123;   </span><br><span class="line">\Yaf_Dispatcher::getInstance()-&gt;disableView();//不一定要可以直接写接口逻辑</span><br><span class="line">    	...接口逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>无论哪个端口结果要做成网页的形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">controller:</span><br><span class="line">&#x27;liststockfrompython&#x27;=&gt;2,//这里数字无所谓好阅读而已</span><br><span class="line"></span><br><span class="line">public function liststockfrompythonAction()&#123;       	</span><br><span class="line">    空什么都不用放</span><br><span class="line">&#125;</span><br><span class="line">view/home/ 下做 liststockfrompython.phtml 页面</span><br></pre></td></tr></table></figure>
+
+<h2 id="php配置文件里的变量获取"><a href="#php配置文件里的变量获取" class="headerlink" title="php配置文件里的变量获取"></a>php配置文件里的变量获取</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$url = \Yaf_Registry::get(&#x27;config&#x27;)-&gt;apple-&gt;verify-&gt;url;</span><br></pre></td></tr></table></figure>
+
+<h2 id="php-token使用"><a href="#php-token使用" class="headerlink" title="php-token使用"></a>php-token使用</h2><p>token不需要存储的，你可以使用AES的可逆向加&#x2F;解密算法对数据进行加密，如aes.ecode(userId+time+info+key(密钥))，生成token后把这个串传回给客户端，不需要保存，等下次他传回给你的时候你只需要aes.decode(token)解密一下就可以获得这里面的用户信息与当前登陆的用户信息对比一下就行了<br>aes的方法：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mark-wu/p/6878947.html">https://www.cnblogs.com/mark-wu/p/6878947.html</a></p>
+<h2 id="php-登录结构"><a href="#php-登录结构" class="headerlink" title="php 登录结构"></a>php 登录结构</h2><p>1，所有类型登录接口，根据所在接口拿的用户信息，在user表查询phone，和wx_unionId,<br>如果有：就记录UserLearnLog表，更新UserDetail表用户信息，获取用户的标签。<br>如果无：插入user表并完成有的其他步骤。</p>
+<p>2，所有类型绑定接口，根据所在接口拿的用户信息，在user表查询phone，和wx_unionId,</p>
+<p>如果有：有1-n条记录各种类型数据的合并。记录绑定日志。Mission表完成绑定任务</p>
+<p>如果无：将信息插入user表绑定，记录绑定日志。</p>
+<p>绑定日志：&#x2F;home&#x2F;webserver&#x2F;logs&#x2F;php_logs&#x2F;wxbind.log</p>
+<h2 id="php-js分享结构"><a href="#php-js分享结构" class="headerlink" title="php-js分享结构"></a>php-js分享结构</h2><p>&#x2F;&#x2F;定义了方法从weixin_share接口拿到，签名，后台配置文案再</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;js/wxutils/wxshare-v2.js?v=3&quot;&gt;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">//通过以下方法调用</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		var param = new Array();</span><br><span class="line">		param[&#x27;user_id&#x27;] = &#x27;&lt;?php echo $user[&#x27;id&#x27;] ;?&gt;&#x27;;</span><br><span class="line">		var missionId = 1009;</span><br><span class="line">		wxShare (&quot;1017&quot;, param, missionId);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题：一个微信公众号页面循环分享不了。<br>答案：写死了URL要动态获取当前的网络地址，更新签名才正确。<br>encodeURIComponent(location.href.split(‘#’).toString()); 这个动态获取url可以重新正确签名所以就可以循环分享</p>
+<h2 id="php微信公众号开发"><a href="#php微信公众号开发" class="headerlink" title="php微信公众号开发"></a>php微信公众号开发</h2><p>允许用户让第三方应用访问该用户在某一网站上存储的私密的资源（如照片，视频，联系人列表）<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/0201zcr/p/5131602.html">微信公众平台开发——微信授权登录（OAuth2.0）</a></p>
+<h2 id="微信支付证书续期"><a href="#微信支付证书续期" class="headerlink" title="微信支付证书续期"></a>微信支付证书续期</h2><p>证书路径：&#x2F;Users&#x2F;Alfred&#x2F;Documents&#x2F;Soursetree&#x2F;prjy_api&#x2F;library&#x2F;weixin&#x2F;cert<br>查看网址：<a target="_blank" rel="noopener" href="https://myssl.com/cert_decode.html">https://myssl.com/cert_decode.html</a><br><img src="https://s2.loli.net/2024/05/28/NyFg8EM36Ljh9nK.png"><br>帮助中心：<a target="_blank" rel="noopener" href="https://kf.qq.com/faq/180824JvUZ3i180824YvMNJj.html">https://kf.qq.com/faq/180824JvUZ3i180824YvMNJj.html</a></p>
+<h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h1><h2 id="一些常用linux指令"><a href="#一些常用linux指令" class="headerlink" title="一些常用linux指令"></a>一些常用linux指令</h2><p>查看config.josn文件的路径：find &#x2F; -name config.json<br>看linux操作系统版本：lsb_release -a<br>查看centos系统版本：cat &#x2F;etc&#x2F;redhat-release<br>ls | more 分页查看<br>ls -l 查看软链<br>查看端口占用1：netstat -anlp | grep 80<br>查看端口占用2：ss -lntpd<br>mac查看端口号占用: lsof -i<br>ps -aux | grep (svn nginx apache php…) 查看进程<br>env 查看环境变量<br>zip -r prjy_api.zip prjy_api  将prjy_api文件夹压缩成prjy_api.zip<br>unzip prjy_api.zip 在当前目录下直接解压prjy_api.zip<br>内存使用 ：用top命令<br>删除路径：rm -rf &#x2F;usr&#x2F;local&#x2F;svndata&#x2F;repo&#x2F;design<br>查看磁盘：df<br>查看目录大小：直接进入要查看的目录里输入：du -sh *<br>1.通过命令du -h –max-depth&#x3D;1 *,可以查看当前目录下各文件、文件…<br>2.同样,通过命令du -h –max-depth&#x3D;0 *,可以只显示直接子目录文件…<br>3.如果只想查看指定目录的总大小,可以使用du -sh 目录名称</p>
+<h2 id="linux文件夹权限"><a href="#linux文件夹权限" class="headerlink" title="linux文件夹权限"></a>linux文件夹权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chown -R webserver:webserver /home/webserver/prjy/prjy_api/application/views/</span><br><span class="line">chmod -R 771 /home/webserver/prjy/prjy_api/application/views/</span><br><span class="line">chown -R webserver:webserver /home/webserver/.ssh/</span><br><span class="line"></span><br><span class="line">#最后：chmod 755 gitcode.sh #root给可执行权限，/usr/local下环境变量执行。</span><br><span class="line">#-rw------- (600) 只有所有者才有读和写的权限</span><br><span class="line">#-rw-r--r-- (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限</span><br><span class="line">#-rwx------ (700) 只有所有者才有读，写，执行的权限</span><br><span class="line">#-rwxr-xr-x (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限</span><br><span class="line">#-rwx--x--x (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限</span><br><span class="line">#-rw-rw-rw- (666) 每个人都有读写的权限</span><br><span class="line">#-rwxrwxrwx (777) 每个人都有读写和执行的权限</span><br></pre></td></tr></table></figure>
+<h2 id="linux定时任务"><a href="#linux定时任务" class="headerlink" title="linux定时任务"></a>linux定时任务</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -l //查看</span><br><span class="line">crontab -e //修改</span><br></pre></td></tr></table></figure>
+
+<p>例如：分钟 小时 日 月 周  	&amp;&amp;指执行第一句成功后执行，  	&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1表示输出到空2指错误，&amp;1指&#x2F;dev&#x2F;null </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * cd /home/webserver/prjy/prjy_api/script/crontab &amp;&amp; /usr/bin/php check_timeout_group_and_refund.php &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="一个经典项目的部署"><a href="#一个经典项目的部署" class="headerlink" title="一个经典项目的部署"></a>一个经典项目的部署</h1><h2 id="ssh-用户名-我的服务器的ip-p-22-端口22"><a href="#ssh-用户名-我的服务器的ip-p-22-端口22" class="headerlink" title="ssh 用户名@我的服务器的ip -p 22(端口22)"></a>ssh 用户名@我的服务器的ip -p 22(端口22)</h2><p>用户名@我的服务器的ip’s password: （这里需要手动输入密码后回车）</p>
+<h2 id="ssh-keygen-t-rsa"><a href="#ssh-keygen-t-rsa" class="headerlink" title="ssh-keygen -t rsa"></a>ssh-keygen -t rsa</h2><p>一路回车在当前用户的根目录下的.ssh目录生成id_rsa.pub公钥<br>将本地生成的公钥拷贝到远程服务器的下并改名为authorized_keys</p>
+<h2 id="文件同步"><a href="#文件同步" class="headerlink" title="文件同步"></a>文件同步</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">src_file=/home/webserver/mmgitlab/prjy_api/application/</span><br><span class="line">dest_file=/home/webserver/prjy/prjy_api/application/</span><br><span class="line"></span><br><span class="line">if [ -f $src_file ] || [ -d $src_file ]; then</span><br><span class="line">    rsync -vaz $src_file $dest_file</span><br><span class="line">else echo &quot;error&quot;</span><br><span class="line">fi</span><br><span class="line">#前提：从fc1上拉代码到mmgitlab的相应目录下</span><br><span class="line">#注意：路径要以/结尾代表目录</span><br><span class="line">#rsync -vaz /home/webserver/mmgitlab/prjy_api/application/views/home/ webserver@119.29.89.166:/home/webserver/tmp/home/</span><br></pre></td></tr></table></figure>
+
+<p>1 从仓库里同步先同步View的home目录一个个来，后续逐步实现第二步。<br>2 同步测试服-  <a href="mailto:&#x77;&#x65;&#x62;&#x73;&#101;&#x72;&#118;&#x65;&#114;&#64;&#x31;&#x30;&#x2e;&#49;&#x2e;&#x30;&#46;&#54;">&#x77;&#x65;&#x62;&#x73;&#101;&#x72;&#118;&#x65;&#114;&#64;&#x31;&#x30;&#x2e;&#49;&#x2e;&#x30;&#46;&#54;</a>:的&#x2F;prjy&#x2F;prjy_api，本机不写ip就不用输密码<br>  同步fc1- <a href="mailto:&#119;&#x65;&#x62;&#115;&#x65;&#114;&#x76;&#101;&#114;&#x40;&#x31;&#49;&#x39;&#46;&#x32;&#57;&#46;&#x38;&#57;&#46;&#49;&#54;&#x36;">&#119;&#x65;&#x62;&#115;&#x65;&#114;&#x76;&#101;&#114;&#x40;&#x31;&#49;&#x39;&#46;&#x32;&#57;&#46;&#x38;&#57;&#46;&#49;&#54;&#x36;</a>:的&#x2F;publish&#x2F;prjy_api（暂时只同步测试服）<br>3 省去了手动上传fc1的尴尬，最后上线还是登录fc1 运行publish.sh</p>
+<h2 id="服务器上git仓"><a href="#服务器上git仓" class="headerlink" title="服务器上git仓"></a>服务器上git仓</h2><p>nginx配置结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/conf -&gt; lnTo -&gt;</span><br><span class="line">/home/webserver/prjy/prjy_api/conf</span><br></pre></td></tr></table></figure>
+
+<p>任务写gitcode.sh脚本先上mmgitlab模仿正式服。<br>先上publish后用publish.sh脚本同步去prjy。</p>
+<p>第一次建立git仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone http://203.195.173.251/mmjrxy/prjy_api.git</span><br><span class="line">cd prjy_api</span><br><span class="line">git checkout dev</span><br><span class="line">之后：</span><br><span class="line">git pull</span><br><span class="line">git show --stat</span><br></pre></td></tr></table></figure>
+
+<p>同步服务器的位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -vaz $src_file webserver@（服务器IP地址）:$dest_file</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="万无一失的同步上线application"><a href="#万无一失的同步上线application" class="headerlink" title="万无一失的同步上线application"></a>万无一失的同步上线application</h2><p>tester｜fc1<br>1，拉FC1的public代码到本地<br>2，git同步到本地gitlab同步目录的application目录。检查问题，并提交git。<br>3，git同步到tester的gitlab同步目录。<br>4，同步tester:gitlab-&gt;tester:prjy tester执行.&#x2F;gitcode.sh ，（检查脚本application目录，一定要tester能正常工作。如果失败把备份的测试环境代码覆盖去tester的application目录git回滚）<br>5，同步tester:prjy-&gt;fc1:publish，tester执行.&#x2F;sendpublish.sh<br>6，fc1执行publish.sh上线正式环境。</p>
+<h2 id="普通上线"><a href="#普通上线" class="headerlink" title="普通上线"></a>普通上线</h2><p>1，提交git<br>2，tester: cd mmgitlab&#x2F;prjy_api; git pull; git show –stat<br>3，tester: cd ~; .&#x2F;gitcode.sh<br>4，tester: cd ~; .&#x2F;sendpublish.sh<br>5，fc1: publish.sh</p>
+<h2 id="正式服负载均衡路径"><a href="#正式服负载均衡路径" class="headerlink" title="正式服负载均衡路径"></a>正式服负载均衡路径</h2><p>接口：<a target="_blank" rel="noopener" href="https://ssl.phjrxy.cn/">https://ssl.phjrxy.cn/</a><br>111.230.217.176:3344-&gt;<br>119.29.89.166:8417，119.29.82.124:8417<br>网页：<a target="_blank" rel="noopener" href="https://phjrxy.cn/">https://phjrxy.cn/</a><br>111.230.217.176:80-&gt;<br>119.29.89.166:1814，119.29.82.124:1814</p>
+<h2 id="重新搭建php学院后台在ranknerd的宝塔里"><a href="#重新搭建php学院后台在ranknerd的宝塔里" class="headerlink" title="重新搭建php学院后台在ranknerd的宝塔里"></a>重新搭建php学院后台在ranknerd的宝塔里</h2><p>预检查<br>查看yaf版本： php –ri yaf<br>查看yaf配置：php -i | grep yaf<br>Memcached查看版本：telnet localhost 11211回车后打 stats<br>Memcached查看配置：&#x2F;etc&#x2F;sysconfig&#x2F;memcached 配置port:11211-&gt;11511</p>
+<p>1，先建站&#x2F;home&#x2F;webserver&#x2F;prjy&#x2F;prjy_api&#x2F;public(必须删除原始所有文件！！！)<br>上传备份代码和数据库。</p>
+<p>2，宝塔php安装yaf，Memcached，插件</p>
+<p>3，修改memcached 配置port:11211-&gt;11511</p>
+<p>4，添加数据库fc Mysql 配置 port：3306-&gt;3316</p>
+<p>5，修改php配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error_reporting = E_ALL &amp; ~E_DEPRECATED &amp; ~E_NOTICE &amp; ~E_STRICT &amp; ~E_WARNING</span><br></pre></td></tr></table></figure>
+
+<p>6，修改index.php “&#x2F;conf&#x2F;application12.ini”（已经git了，重备份就好，留在这里还原记录下）</p>
+<p>7，修改application12.ini（已经git了，重备份就好，留在这里还原记录下）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;域名配置</span><br><span class="line">;mysql配置</span><br><span class="line">;任务队列</span><br></pre></td></tr></table></figure>
+
+<p>8。web配在原有宝塔的直接修改宝塔配置把web的rewrite抄过来（宝塔里修改）<br>可选方案1（V）<br>(接口和网页统一用Https接口必须排前重复的都是一样的接口)：统一用443安全</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include /home/webserver/prjy/prjy_api/conf/api_nginx_rewrite;</span><br><span class="line">include /home/webserver/prjy/prjy_api/conf/web_nginx_rewrite;</span><br></pre></td></tr></table></figure>
+
+<p>可选方案2（X）<br>(还原老架构接口和网页用Http分不同端口8417和80端口)：<br>ln -s &#x2F;home&#x2F;webserver&#x2F;prjy&#x2F;prjy_api&#x2F;conf&#x2F;fc_apis.conf &#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;nginx&#x2F;fc_apis.conf<br>添加文件&#x2F;www&#x2F;server&#x2F;nginx&#x2F;logs&#x2F;prjy_api.log<br>修改fc_*.conf的所有日志路径<br>宝塔放行端口8417接口</p>
+<p>9，最后上服务器定时任务<br>crontab -e 恢复备份里的定时任务条目</p>
+<p>10，后期关注7牛的链接</p>
+<h1 id="以肿瘤化疗助手APP为例，配置微信分享的Universal-Links"><a href="#以肿瘤化疗助手APP为例，配置微信分享的Universal-Links" class="headerlink" title="以肿瘤化疗助手APP为例，配置微信分享的Universal Links"></a>以肿瘤化疗助手APP为例，配置微信分享的Universal Links</h1><p>在<em>open开放平台</em>和在 <em>iOS AppDelegate</em>下设置一致的带Path（例如doctor&#x2F;）的Universal Links:<br><a target="_blank" rel="noopener" href="https://lt.e-interconnection.com/doctor/">https://lt.e-interconnection.com/doctor/</a></p>
+<p>配服务器<a target="_blank" rel="noopener" href="https://lt.e-interconnection.com/apple-app-site-association%EF%BC%9A">https://lt.e-interconnection.com/apple-app-site-association：</a><br>“&#x2F;web&#x2F;share_doctor_client” 为分享网页的路径<br>“&#x2F;doctor&#x2F;*” 这里的doctor就是Universal Links的Path<br>{<br>  “applinks”: {<br>    “apps”: [</p>
+<pre><code>],
+&quot;details&quot;: [
+  &#123;
+    &quot;appID&quot;: &quot;9GVA5G7QYT.com.youguihua.chdrug&quot;,
+    &quot;paths&quot;: [
+      &quot;/web/share_doctor_client&quot;,
+      &quot;/doctor/*&quot;
+    ]
+  &#125;
+]
+</code></pre>
+<p>  }<br>}</p>
+<p>其他常见Universal Links 的问题参考：<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/article/doc/0004c6531d023056147aea99256813">https://developers.weixin.qq.com/community/develop/article/doc/0004c6531d023056147aea99256813</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://git.bt-coin.top">Alfred Zhang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://git.bt-coin.top/2020/05/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/">http://git.bt-coin.top/2020/05/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/07/21/%E7%9C%81%E9%92%B1APP/" title="省钱APP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">省钱APP</div></div></a></div><div class="next-post pull-right"><a href="/2020/04/30/%E5%85%B6%E4%BB%96%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E6%8E%A8%E8%8D%90/" title="其他数字货币推荐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">其他数字货币推荐</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/02/29/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%E7%BD%91%E7%AB%99/" title="搜索引擎收录网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-29</div><div class="title">搜索引擎收录网站</div></div></a></div><div><a href="/2020/03/24/%E6%B7%BB%E5%8A%A0google%E5%B9%BF%E5%91%8A/" title="添加google广告"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-24</div><div class="title">添加google广告</div></div></a></div><div><a href="/2020/03/23/%E6%90%AD%E5%BB%BAVPS/" title="搭建VPS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-23</div><div class="title">搭建VPS</div></div></a></div><div><a href="/2020/02/25/%E8%A7%A3%E5%86%B3%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%94%BB%E5%87%BB%E5%B0%9D%E8%AF%95ssh%E7%99%BB%E9%99%86%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决云服务器被攻击尝试ssh登陆的问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-25</div><div class="title">解决云服务器被攻击尝试ssh登陆的问题</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Alfred Zhang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ripro%E7%A0%B4%E8%A7%A3%E4%B8%BB%E9%A2%98%E6%97%A0%E5%90%8E%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">ripro破解主题无后门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E7%89%9B%E4%BA%91CDN%E5%BC%80%E5%90%AF%E6%89%93%E5%BC%80%E9%98%B2%E7%9B%97%E9%93%BE%E5%90%8E%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">2.</span> <span class="toc-text">七牛云CDN开启打开防盗链后的特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pip-%E7%94%9F%E6%88%90%E5%92%8C%E5%AE%89%E8%A3%85requirements-txt"><span class="toc-number">3.</span> <span class="toc-text">pip 生成和安装requirements.txt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%AE%8Cnodejs%E8%BE%93%E5%85%A5%EF%BC%9Anode-v-%E6%8A%A5%E9%94%99-Segmentation-fault"><span class="toc-number">4.</span> <span class="toc-text">安装完nodejs输入：node -v 报错-&gt;Segmentation fault</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="toc-number">5.</span> <span class="toc-text">node环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85nodejs"><span class="toc-number">5.1.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85mongodb%EF%BC%88%E6%94%AF%E6%8C%81CentOS8%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">安装mongodb（支持CentOS8）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8pm2-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">5.3.</span> <span class="toc-text">安装和使用pm2(进程管理器)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%A1%B9%E7%9B%AEnode-elm"><span class="toc-number">6.</span> <span class="toc-text">部署后台接口项目node-elm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E6%9C%AC%E6%9C%BA%E9%A1%B9%E7%9B%AEnode-elm%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%89%A7%E8%A1%8C%E6%9C%AC%E6%9C%BA%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E7%9A%84%E9%83%A8%E7%BD%B2%EF%BC%88%E4%B8%8A%E7%BA%BF%EF%BC%89"><span class="toc-number">6.1.</span> <span class="toc-text">进入本机项目node-elm路径，执行本机到服务器环境的部署（上线）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81nodejs%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3"><span class="toc-number">6.2.</span> <span class="toc-text">验证nodejs后台接口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AExk-vue-manage"><span class="toc-number">7.</span> <span class="toc-text">部署后台管理项目xk-vue-manage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E6%9C%AC%E6%9C%BA%E9%A1%B9%E7%9B%AExk-vue-manage%E8%B7%AF%E5%BE%84-%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%8E%BB%E7%94%9F%E6%88%90manage%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E3%80%82"><span class="toc-number">7.1.</span> <span class="toc-text">进入本机项目xk-vue-manage路径,执行命令，去生成manage目录下的静态页面。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E7%BA%BF%E9%AA%8C%E8%AF%81"><span class="toc-number">7.2.</span> <span class="toc-text">上线验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#svn%E6%9C%80%E7%AE%80%E4%BE%BF%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">svn最简便总结:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8flush-privileges%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-number">9.</span> <span class="toc-text">mysql必须使用flush privileges的两种情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php%E5%9F%BA%E7%A1%80"><span class="toc-number">10.</span> <span class="toc-text">php基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E7%AB%AF%E5%8F%A3"><span class="toc-number">10.1.</span> <span class="toc-text">php端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F"><span class="toc-number">10.2.</span> <span class="toc-text">php页面样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">10.3.</span> <span class="toc-text">php配置文件里的变量获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-token%E4%BD%BF%E7%94%A8"><span class="toc-number">10.4.</span> <span class="toc-text">php-token使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-%E7%99%BB%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">10.5.</span> <span class="toc-text">php 登录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-js%E5%88%86%E4%BA%AB%E7%BB%93%E6%9E%84"><span class="toc-number">10.6.</span> <span class="toc-text">php-js分享结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91"><span class="toc-number">10.7.</span> <span class="toc-text">php微信公众号开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E8%AF%81%E4%B9%A6%E7%BB%AD%E6%9C%9F"><span class="toc-number">10.8.</span> <span class="toc-text">微信支付证书续期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E5%9F%BA%E7%A1%80"><span class="toc-number">11.</span> <span class="toc-text">linux基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8linux%E6%8C%87%E4%BB%A4"><span class="toc-number">11.1.</span> <span class="toc-text">一些常用linux指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90"><span class="toc-number">11.2.</span> <span class="toc-text">linux文件夹权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">11.3.</span> <span class="toc-text">linux定时任务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-number">12.</span> <span class="toc-text">一个经典项目的部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-%E7%94%A8%E6%88%B7%E5%90%8D-%E6%88%91%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84ip-p-22-%E7%AB%AF%E5%8F%A322"><span class="toc-number">12.1.</span> <span class="toc-text">ssh 用户名@我的服务器的ip -p 22(端口22)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-keygen-t-rsa"><span class="toc-number">12.2.</span> <span class="toc-text">ssh-keygen -t rsa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5"><span class="toc-number">12.3.</span> <span class="toc-text">文件同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Agit%E4%BB%93"><span class="toc-number">12.4.</span> <span class="toc-text">服务器上git仓</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E6%97%A0%E4%B8%80%E5%A4%B1%E7%9A%84%E5%90%8C%E6%AD%A5%E4%B8%8A%E7%BA%BFapplication"><span class="toc-number">12.5.</span> <span class="toc-text">万无一失的同步上线application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E4%B8%8A%E7%BA%BF"><span class="toc-number">12.6.</span> <span class="toc-text">普通上线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E6%9C%8D%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%B7%AF%E5%BE%84"><span class="toc-number">12.7.</span> <span class="toc-text">正式服负载均衡路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BAphp%E5%AD%A6%E9%99%A2%E5%90%8E%E5%8F%B0%E5%9C%A8ranknerd%E7%9A%84%E5%AE%9D%E5%A1%94%E9%87%8C"><span class="toc-number">12.8.</span> <span class="toc-text">重新搭建php学院后台在ranknerd的宝塔里</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E8%82%BF%E7%98%A4%E5%8C%96%E7%96%97%E5%8A%A9%E6%89%8BAPP%E4%B8%BA%E4%BE%8B%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB%E7%9A%84Universal-Links"><span class="toc-number">13.</span> <span class="toc-text">以肿瘤化疗助手APP为例，配置微信分享的Universal Links</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/03/%E8%82%A1%E5%B8%82%E7%9B%B8%E5%85%B3/" title="股市相关">股市相关</a><time datetime="2021-01-02T20:28:26.000Z" title="Created 2021-01-03 04:28:26">2021-01-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/01/%E9%A3%9F%E8%B0%B1%E4%B8%8E%E8%83%BD%E9%87%8F%E7%91%9C%E4%BC%BD/" title="食谱与能量瑜伽">食谱与能量瑜伽</a><time datetime="2021-01-01T12:29:17.000Z" title="Created 2021-01-01 20:29:17">2021-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/11/22/%E7%94%B7%E7%94%9F%E4%BC%9A%E5%AF%B9%E4%B8%8D%E5%96%9C%E6%AC%A2%E7%9A%84%E5%A5%B3%E7%94%9F%E6%9C%89%E5%A4%9A%E6%AE%8B%E5%BF%8D%EF%BC%9F/" title="男生会对不喜欢的女生有多残忍？">男生会对不喜欢的女生有多残忍？</a><time datetime="2020-11-22T10:58:16.000Z" title="Created 2020-11-22 18:58:16">2020-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/30/%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84%E6%95%85%E4%BA%8B%E6%92%AD%E5%AE%A2/" title="能听懂的故事播客">能听懂的故事播客</a><time datetime="2020-08-30T15:46:51.000Z" title="Created 2020-08-30 23:46:51">2020-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/07/21/%E7%9C%81%E9%92%B1APP/" title="省钱APP">省钱APP</a><time datetime="2020-07-21T00:54:20.000Z" title="Created 2020-07-21 08:54:20">2020-07-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Alfred Zhang</div><div class="footer_custom_text">粤ICP备18051266号-1</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const abcjsInit = () => {
+    const abcjsFn = () => {
+      document.querySelectorAll(".abc-music-sheet").forEach(ele => {
+        ABCJS.renderAbc(ele, ele.innerHTML, {responsive: 'resize'})
+      })
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://cdn.jsdelivr.net/npm/abcjs@6.3.0/dist/abcjs-basic-min.min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : window.addEventListener('load', abcjsInit)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.65.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.13.0"></script></div></div></body></html>

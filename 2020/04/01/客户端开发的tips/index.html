@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>客户端开发的tips | 数字化区块时代</title><meta name="author" content="Alfred Zhang"><meta name="copyright" content="Alfred Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安卓cell的分配比例问题使用权重layout_weightandroid:layout_width&#x3D;”0dp”android:layout_weight&#x3D;”?”&#x2F;&gt; 解决iOS cell复用导致内容重复问题prepareForReuse()苹果官方对prepareForReuse()的描述： MAC局域网内网络路由分享前提条件sudo sysctl -w ne">
+<meta property="og:type" content="article">
+<meta property="og:title" content="客户端开发的tips">
+<meta property="og:url" content="http://git.bt-coin.top/2020/04/01/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/index.html">
+<meta property="og:site_name" content="数字化区块时代">
+<meta property="og:description" content="安卓cell的分配比例问题使用权重layout_weightandroid:layout_width&#x3D;”0dp”android:layout_weight&#x3D;”?”&#x2F;&gt; 解决iOS cell复用导致内容重复问题prepareForReuse()苹果官方对prepareForReuse()的描述： MAC局域网内网络路由分享前提条件sudo sysctl -w ne">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-04-01T02:42:33.000Z">
+<meta property="article:modified_time" content="2024-05-28T03:05:47.259Z">
+<meta property="article:author" content="Alfred Zhang">
+<meta property="article:tag" content="客户端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://git.bt-coin.top/2020/04/01/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3022945164825226',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"MOYOVBI0ZH","apiKey":"eb61ade71769c769d7d10653b1cb522b","indexName":"dev_alfred","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '客户端开发的tips',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 11:05:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/download/"><i class="fa-fw fas fa-download"></i><span> Download</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="数字化区块时代"><span class="site-name">数字化区块时代</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/download/"><i class="fa-fw fas fa-download"></i><span> Download</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">客户端开发的tips</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-04-01T02:42:33.000Z" title="Created 2020-04-01 10:42:33">2020-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-28T03:05:47.259Z" title="Updated 2024-05-28 11:05:47">2024-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="客户端开发的tips"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="安卓cell的分配比例问题"><a href="#安卓cell的分配比例问题" class="headerlink" title="安卓cell的分配比例问题"></a>安卓cell的分配比例问题</h1><p>使用权重layout_weight<br>android:layout_width&#x3D;”0dp”<br>android:layout_weight&#x3D;”?”&#x2F;&gt;</p>
+<h1 id="解决iOS-cell复用导致内容重复问题"><a href="#解决iOS-cell复用导致内容重复问题" class="headerlink" title="解决iOS cell复用导致内容重复问题"></a>解决iOS cell复用导致内容重复问题</h1><p>prepareForReuse()<br>苹果官方对prepareForReuse()的<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uitableviewcell/1623223-prepareforreuse">描述</a>：</p>
+<h1 id="MAC局域网内网络路由分享前提条件"><a href="#MAC局域网内网络路由分享前提条件" class="headerlink" title="MAC局域网内网络路由分享前提条件"></a>MAC局域网内网络路由分享前提条件</h1><p>sudo sysctl -w net.inet.ip.forwarding&#x3D;1</p>
+<h1 id="mac系统-内置浏览器控制台空白解决-分类：HBuilderX"><a href="#mac系统-内置浏览器控制台空白解决-分类：HBuilderX" class="headerlink" title="mac系统 内置浏览器控制台空白解决 分类：HBuilderX"></a>mac系统 内置浏览器控制台空白解决 分类：HBuilderX</h1><p>是端口被占用造成的。<br>打开操作系统终端，输入如下命令:<br>lsof -i:9777 | awk ‘{print $2}’ | tail -n +2 | xargs kill -9</p>
+<h1 id="M1-chip-选择Rosetta模式的Xcode发现的问题"><a href="#M1-chip-选择Rosetta模式的Xcode发现的问题" class="headerlink" title="M1 chip 选择Rosetta模式的Xcode发现的问题"></a>M1 chip 选择Rosetta模式的Xcode发现的问题</h1><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/65999986/xcode-storyboard-is-black-an-internal-error-occurred?noredirect=1">https://stackoverflow.com/questions/65999986/xcode-storyboard-is-black-an-internal-error-occurred?noredirect=1</a><br>xcode模拟器运行项目要选择Rosetta模式打开；<br>Rosetta模式打开后Storyboard黑了；</p>
+<h1 id="检查工程中的-UIWebView"><a href="#检查工程中的-UIWebView" class="headerlink" title="检查工程中的 UIWebView"></a>检查工程中的 UIWebView</h1><p>grep -r UIWebView .<br> 注意最后有个点号，而且点号和 UIWebView 之间必须有一个空格。<br>会马上出现工程中带有 UIWebView 的文件的列表（包括在工程中无法搜索到的 .a 文件中对UIWebView 的引用）。</p>
+<h1 id="iOS开发找不到Libstdc-6-0-9-files"><a href="#iOS开发找不到Libstdc-6-0-9-files" class="headerlink" title="iOS开发找不到Libstdc-.6.0.9-files"></a>iOS开发找不到Libstdc-.6.0.9-files</h1><p>该项目用于Xcode 11+ 不支持使用lbstdc++插件报错异常解决方案</p>
+<p>类似这种报错Info: <code>Error: ld: library not found for &quot;-lstdc++.6&quot;</code></p>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>根据调试方式不同，真机和模拟器文件放置路径存在差异，分别复制对应的Lib文件到下面的路径即可解决Xcode编译报错</p>
+<h3 id="For-Device"><a href="#For-Device" class="headerlink" title="For Device"></a>For Device</h3><p>Put tbd copy to the path:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/</span><br></pre></td></tr></table></figure>
+<h3 id="For-Simulator"><a href="#For-Simulator" class="headerlink" title="For Simulator"></a>For Simulator</h3><p>Put dylib copy to the path:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/usr/lib</span><br></pre></td></tr></table></figure>
+<p>Put tdb copy to the path:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/lib/</span><br></pre></td></tr></table></figure>
+<h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><p>直接 <em>Clone or Download Zip</em> 进行文件下载</p>
+<p>也可以点击<a target="_blank" rel="noopener" href="https://github.com/Cui-y/Libstdc-.6.0.9-files/archive/master.zip">这里</a>进行文件下载</p>
+<h1 id="上传应用到苹果一直卡住验证中（authentication-with-the-app-store）问题解决"><a href="#上传应用到苹果一直卡住验证中（authentication-with-the-app-store）问题解决" class="headerlink" title="上传应用到苹果一直卡住验证中（authentication with the app store）问题解决"></a>上传应用到苹果一直卡住验证中（authentication with the app store）问题解决</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">rm -rf .itmstransporter/</span><br><span class="line">/Applications/Xcode.app/Contents/SharedFrameworks/ContentDeliveryServices.framework/Versions/A/itms/bin/iTMSTransporter</span><br></pre></td></tr></table></figure>
+<p>执行完成后注意缓存文件检查是否都下载了。<br>&#x2F;Users&#x2F;your_user_name&#x2F;Library&#x2F;Caches&#x2F;com.apple.amp.itmstransporter&#x2F;</p>
+<h1 id="framework无法打包成ipa"><a href="#framework无法打包成ipa" class="headerlink" title="framework无法打包成ipa"></a>framework无法打包成ipa</h1><p>Xcode-&gt;Build settings-&gt;Signing-&gt;Code Signing Identity: Any SDK<br>Xcode-&gt;Build settings-&gt;Signing-&gt;Code Signing Style: Automatic<br>参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/76fe7b7bc52d">frame打包库</a></p>
+<h1 id="调整iOS的statusbar的颜色"><a href="#调整iOS的statusbar的颜色" class="headerlink" title="调整iOS的statusbar的颜色"></a>调整iOS的statusbar的颜色</h1><p>只需要改变控制器的view的背景颜色!!!</p>
+<h1 id="OC基础"><a href="#OC基础" class="headerlink" title="OC基础"></a>OC基础</h1><p>#import 跟#include、@class有什么区别？＃import&lt;&gt; 跟 #import””又什么区别？<br>1.#import和#include都能完整地包含某个文件的内容，#import能防止同一个文件被包含多次<br>2.@class仅仅是声明一个类名，并不会包含类的完整声明;@class还能解决循环包含的问题<br>3.#import &lt;&gt; 用来包含系统自带的文件，#import “”用来包含自定义的文件</p>
+<p>属性readwrite，readonly，assign，retain，copy，nonatomic 各是什么作用，在那种情况下用？<br>1.readwrite：同时生成get方法和set方法的声明和实现<br>2.readonly：只生成get方法的声明和实现<br>3.assign：set方法的实现是直接赋值，用于基本数据类型<br>4.retain：set方法的实现是release旧值，retain新值，用于OC对象类型<br>5.copy：set方法的实现是release旧值，copy新值，用于NSString、block等类型<br>6.nonatomic：非原子性，set方法的实现不加锁（比atomic性能高）</p>
+<p>属性修饰符的本质？<br>assign 修饰符 没有做任何操作,本质就是得到内存空间,直接赋值<br>copy 修饰符 编译器为你调用了 objc_setProperty_nonatomic_copy, 幸运的是它确实就是 runtime 中的源码<br>strong 修饰符下,编译器为你调用了 objc_storeStrong 函数, 它也是一个 runtime 源码中的函数<br>weak 修饰符下,编译器为你调用了 objc_storeWeak 函数, 它也是一个 runtime 源码中的函数</p>
+<p>Objective-C如何对内存管理的,说说你的看法和解决方法?<br>1.每个对象都有一个引用计数器，每个新对象的计数器是1，当对象的计数器减为0时，就会被销毁<br>2.通过retain可以让对象的计数器+1、release可以让对象的计数器-1<br>3.还可以通过autorelease pool管理内存<br>4.如果用ARC，编译器会自动生成管理内存的代码</p>
+<p>static的作用？<br>1.static修饰的函数是一个内部函数，只能在本文件中调用，其他文件不能调用<br>2.static修饰的全部变量是一个内部变量，只能在本文件中使用，其他文件不能使用<br>3.static修饰的局部变量只会初始化一次，并且在程序退出时才会回收内存</p>
+<p>线程和进程的区别？<br>1.一个应用程序对应一个进程，一个进程帮助程序占据一块存储空间<br>2.要想在进程中执行任务，就必须开启线程，一条线程就代表一个任务<br>3.一个进程中允许开启多条线程，也就是同时执行多个任务</p>
+<p>堆和栈的区别？<br>1.堆空间的内存是动态分配的，一般存放对象，并且需要手动释放内存<br>2.栈空间的内存由系统自动分配，一般存放局部变量等，不需要手动管理内存</p>
+<p>谈谈常用的数据存储方法?<br>1.属性列表<br>2.Preference（NSUserDefaults）<br>3.键值归档（NSKeyedArchiver、NSCoding）<br>4.SQLite数据库<br>5.Core Data</p>
+<p>深浅拷贝的区别是什么?<br>1.浅拷贝：指针（地址）拷贝，不会产生新对象<br>2.深拷贝：内容拷贝，会产生新对象</p>
+<p>KVO与KVC是什么?<br>1.KVC是键值编码，可以通过一个字符串的key（属性名）修改对象的属性值<br>2.KVO是键值监听，可以监听一个对象属性值的改变</p>
+<p>delegates的有用途是啥?<br>1.两个对象之间传递数据和消息<br>2.解耦，拆分业务逻辑</p>
+<p>代理和通知有啥区别?<br>1.通过NSNotification可以给多个对象传递数据和消息<br>2.通过protocol（代理模式）只能给一个对象传递数据和消息 </p>
+<p>推送是什么?<br>1.本地推送：程序内部弹出通知到用户设备<br>2.远程推送：由推送服务器推送通知到用户设备</p>
+<p>什么是单例?<br>1.单例：保证程序运行过程中，永远只有一个对象实例<br>2.目的：全局共享一份资源、节省不必要的内存开销</p>
+<p>frame与bounds有什么不同?<br>1.frame以父控件的左上角为坐标原点<br>2.bounds以控件本身的左上角为坐标原点</p>
+<p>Object-C有多继承吗？没有的话用什么代替？<br>1.OC是单继承，没有多继承<br>2.有时可以用分类和协议来代替多继承</p>
+<p>tableView的重用机制？<br>简述：将离开屏幕的cell放到缓存池，重新拿来显示到屏幕的其他位</p>
+<p>怎么理解MVC，在Cocoa中MVC是怎么实现的？有了解过MVVM么,和MVC有什么差别?<br>1.M：Model，模型，封装数据<br>2.V：View，视图界面，负责展示数据<br>3.C：Controller，控制器，负责提供数据（Model）给界面（View）</p>
+<p>self.跟self-&gt;什么区别？<br>1.self.是调用get方法或者set放<br>2.self是当前本身，是一个指向当前对象的指针<br>3.self-&gt;是直接访问成员变量</p>
+<p>weak和assign的区别？<br>1.修饰变量类型的区别<br>weak 只可以修饰对象。如果修饰基本数据类型，编译器会报错-“Property with ‘weak’ attribute must be of object type”。<br>assign 可修饰对象，和基本数据类型。当需要修饰对象类型时，MRC时代使用unsafe_unretained。当然，unsafe_unretained也可能产生野指针，所以它名字是”unsafe_”。<br>2.是否产生野指针的区别<br>weak 不会产生野指针问题。因为weak修饰的对象释放后（引用计数器值为0），指针会自动被置nil，之后再向该对象发消息也不会崩溃。 weak是安全的。<br>assign 如果修饰对象，会产生野指针问题；如果修饰基本数据类型则是安全的。修饰的对象释放后，指针不会自动被置空，此时向对象发消息会崩溃。</p>
+<p>strong 与copy的区别<br>strong 与copy都会使引用计数加1，但strong是两个指针指向同一个内存地址，copy会在内存里拷贝一份对象，两个指针指向不同的内存地址</p>
+<p>线程问题？<br>Pthreads ：在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。<br>NSThread：这套方案是经过苹果封装后的，并且完全面向对象的。所以你可以直接操控线程对象，非常直观和方便。<br>GCD：Grand Central Dispatch，它是苹果为多核的并行运算提出的解决方案，所以会自动合理地利用更多的CPU内核（比如双核、四核），最重要的是它会自动管理线程的生命周期（创建线程、调度任务、销毁线程），完全不需要我们管理，我们只需要告诉干什么就行<br>dispatch queue是一个工作队列，其背后是一个全局的线程池GCD Thread Pool。dispatch queue的真髓：能串行、能并行、能同步、能异步以及共享同一个线程池。<br>GCD exposes five different queues<br>NSOperation &amp; NSOperationQueue：Operation queues are a Cocoa abstraction of the queue model exposed by GCD. While GCD offers more low-level control, operation queues implement several convenient features on top of it, which often makes it the best and safest choice for application developers. 大家可以看到 NSOperation 和 NSOperationQueue 分别对应 GCD 的 任务 和 队列 。操作步骤也很好理解</p>
+<p>什么是OC链式语法？<br>Pod入BlocksKit用处：<br>1 通过block传入事件处理函数<br>2 创建动态代理，传入block给想要实现的方法。<br>3 在很多基础的类上增加额外的方法。<br>BlocksKit把很多系统的delegate，方法等 翻新成block 了，对与UIKit 类的，还是比较方便使用的。对于喜欢block的可以考虑试试。（注tableView 这样大个的 delegate 还是算了把骚年）<br> [button bk_addEventHandler:^(id sender) {<br>  &#x2F;&#x2F; do something<br>  } forControlEvents:UIControlEventTouchUpInside];<br>masonry里面自动布局使用的.top().bottom();就是链式语法<br>(BaseViewController *(^)())stepOne;<br>实现方法：<br>(BaseViewController *(^)())stepOne{<br>  return ^(){<br>  NSLog(@”do”);<br>  return self;<br>  };<br>}；<br>会有空指针的坑<br>typedef void (^block)(void);<br>int main() {<br>  block b &#x3D; NULL;<br>  b(); &#x2F;&#x2F;闪退<br>}</p>
+<p>CALayer 和 UIView的区别？<br>1 每个 UIView 内部都有一个 CALayer 在背后提供内容的绘制和显示，并且 UIView 的尺寸样式都由内部的 Layer 所提供。两者都有树状层级结构，layer 内部有 SubLayers，View 内部有 SubViews.但是 Layer 比 View 多了个AnchorPoint<br>2  在 View显示的时候，UIView 做为 Layer 的 CALayerDelegate,View 的显示内容由内部的 CALayer 的 display<br>3  CALayer 是默认修改属性支持隐式动画的，在给 UIView 的 Layer 做动画的时候，View 作为 Layer 的代理，Layer 通过 actionForLayer:forKey:向 View请求相应的 action(动画行为)<br>4  layer 内部维护着三分 layer tree,分别是 presentLayer Tree(动画树),modeLayer Tree(模型树), Render Tree (渲染树),在做 iOS动画的时候，我们修改动画的属性，在动画的其实是 Layer 的 presentLayer的属性值,而最终展示在界面上的其实是提供 View的modelLayer<br>5  两者最明显的区别是 View可以接受并处理事件，而 Layer 不可以。</p>
+<p>#Swift基础<br>oc如何调用swift？<br>答：Appdelegate:<br>#import “MMFinancialSchool-Swift.h”</p>
+<p>let 和Var 的区别？<br>答：常量和变量，let 常量可以替代OC的宏</p>
+<p>字符串如何表达输出变量？<br>答：”\（变量）”<br>String（变量）</p>
+<p>V字符串值的字典如何表达？<br>答：[“key1”:”value1”, “key2”:”value2”,…..]<br>初始化空字典<a href="">String:String</a> 或 Dictionary<String><br>清空字典[:]   </p>
+<p>V字符串数组表达？<br>答：[“string1”,”string2”,….]<br>初始化空数组：<a href="">String</a>, 或 Array<String>()</p>
+<p>什么是可选值？链式可选值的作用？<br>答：可选值是可以为空或为Some的枚举类型。特点是可以nil初始化<br>可选值链式用来忽略属性为nil的情况的缩写语法。</p>
+<p>描述变量的计算属性的作用？属性监视器的作用？<br>答：变量带get ,set 的方法可以读写 可以放在 &#x3D; 运算符的两边<br>只带get 方法是只读 ，只能放在 &#x3D; 运算符右侧<br>willSet 方法变化之前调用didSet方法在变化后调用，属性监视器用来改变属性后更新UI</p>
+<ol>
+<li>   enum ServerResponse {</li>
+<li>   case result(String, String)</li>
+<li>   case failure(String)</li>
+<li>   }<br>上面的String是指什么？<br>答：联系值，用于传参</li>
+</ol>
+<p>类扩展的作用是什么？<br>答：使用extension 关键字。用于增加class，structure，enum，的里方法和计算属性。且它不能带存储属性。</p>
+<p>IPhoneX的安全区？<br>答：回答上横竖屏分别在那个区即可。使用边框约束。</p>
+<p>自由思考题：考察公司APP的某些效果说思路。</p>
+<h1 id="Flutter基础"><a href="#Flutter基础" class="headerlink" title="Flutter基础"></a>Flutter基础</h1><p>Flutter是Google推出的一套开源跨平台UI框架，可以快速地在Android、iOS和Web平台上构建高质量的原生用户界面。在过去的一年里，Flutter的更新频率是相当的快，也有很多的公司开始使用它来进行跨平台应用开发，可以说，将Flutter称为2019年最流行的跨平台技术也不为过。</p>
+<p>在研究了Hybrid APP、React Native和Weex等技术之后，为在今年的早些时候也入了Flutter的坑。总的来说，不管是从社群和社区的活跃来看，还是从技术的水准上来看，Flutter无疑是最优秀的，特别是Google将Flutter列为重点推广项目之后，全世界掀起了一股学习Flutter的热潮。</p>
+<p>在国内，除了阿里、腾讯、美团等大厂外，国内很多的中小团队也开始使用Flutter来作为移动应用开发的首选，并且很多公司在移动招聘方面也要求具有Flutter开发的背景。Flutter 的面试题主要分为两个Dart和Flutter部分，下面是一些常见的面试题。</p>
+<p>Dart</p>
+<ol>
+<li><p>Dart 当中的 「..」表示什么意思？<br>Dart 当中的 「..」意思是 「级联操作符」，为了方便配置而使用。「..」和「.」不同的是 调用「..」后返回的相当于是 this，而「.」返回的则是该方法返回的值 。</p>
+</li>
+<li><p>Dart 的作用域<br>Dart 没有 「public」「private」等关键字，默认就是公开的，私有变量使用 下划线 _开头。</p>
+</li>
+<li><p>Dart 是不是单线程模型？是如何运行的？<br>Dart 是单线程模型，运行的的流程如下图。</p>
+</li>
+</ol>
+<p>简单来说，Dart 在单线程中是以消息循环机制来运行的，包含两个任务队列，一个是“微任务队列” microtask queue，另一个叫做“事件队列” event queue。</p>
+<p>当Flutter应用启动后，消息循环机制便启动了。首先会按照先进先出的顺序逐个执行微任务队列中的任务，当所有微任务队列执行完后便开始执行事件队列中的任务，事件任务执行完毕后再去执行微任务，如此循环往复，生生不息。</p>
+<ol start="4">
+<li>Dart 是如何实现多任务并行的？<br>前面说过， Dart 是单线程的，不存在多线程，那如何进行多任务并行的呢？其实，Dart的多线程和前端的多线程有很多的相似之处。Flutter的多线程主要依赖Dart的并发编程、异步和事件驱动机制。</li>
+</ol>
+<p>简单的说，在Dart中，一个Isolate对象其实就是一个isolate执行环境的引用，一般来说我们都是通过当前的isolate去控制其他的isolate完成彼此之间的交互，而当我们想要创建一个新的Isolate可以使用Isolate.spawn方法获取返回的一个新的isolate对象，两个isolate之间使用SendPort相互发送消息，而isolate中也存在了一个与之对应的ReceivePort接受消息用来处理，但是我们需要注意的是，ReceivePort和SendPort在每个isolate都有一对，只有同一个isolate中的ReceivePort才能接受到当前类的SendPort发送的消息并且处理。</p>
+<ol start="5">
+<li>说一下Dart异步编程中的 Future关键字？<br>前面说过，Dart 在单线程中是以消息循环机制来运行的，其中包含两个任务队列，一个是“微任务队列” microtask queue，另一个叫做“事件队列” event queue。</li>
+</ol>
+<p>在Java并发编程开发中，经常会使用Future来处理异步或者延迟处理任务等操作。而在Dart中，执行一个异步任务同样也可以使用Future来处理。在 Dart 的每一个 Isolate 当中，执行的优先级为 ：Main &gt; MicroTask &gt; EventQueue。</p>
+<ol start="6">
+<li><p>说一下Dart异步编程中的 Stream数据流？<br>在Dart中，Stream 和 Future 一样，都是用来处理异步编程的工具。它们的区别在于，Stream 可以接收多个异步结果，而Future 只有一个。<br>Stream 的创建可以使用 Stream.fromFuture，也可以使用 StreamController 来创建和控制。还有一个注意点是：普通的 Stream 只可以有一个订阅者，如果想要多订阅的话，要使用 asBroadcastStream()。</p>
+</li>
+<li><p>Stream 有哪两种订阅模式？分别是怎么调用的？<br>Stream有两种订阅模式：单订阅(single) 和 多订阅（broadcast）。单订阅就是只能有一个订阅者，而广播是可以有多个订阅者。这就有点类似于消息服务（Message Service）的处理模式。单订阅类似于点对点，在订阅者出现之前会持有数据，在订阅者出现之后就才转交给它。而广播类似于发布订阅模式，可以同时有多个订阅者，当有数据时就会传递给所有的订阅者，而不管当前是否已有订阅者存在。</p>
+</li>
+</ol>
+<p>Stream 默认处于单订阅模式，所以同一个 stream 上的 listen 和其它大多数方法只能调用一次，调用第二次就会报错。但 Stream 可以通过 transform() 方法（返回另一个 Stream）进行连续调用。通过 Stream.asBroadcastStream() 可以将一个单订阅模式的 Stream 转换成一个多订阅模式的 Stream，isBroadcast 属性可以判断当前 Stream 所处的模式。</p>
+<ol start="8">
+<li>await for 如何使用？<br>await for是不断获取stream流中的数据，然后执行循环体中的操作。它一般用在直到stream什么时候完成，并且必须等待传递完成之后才能使用，不然就会一直阻塞。</li>
+</ol>
+<p>Stream<String> stream &#x3D; new Stream<String>.fromIterable([‘不开心’, ‘面试’, ‘没’, ‘过’]);<br>main() async{<br>    await for(String s in stream){<br>    print(s);<br>  }<br>}<br>9. 说一下 mixin机制？<br>mixin 是Dart 2.1 加入的特性，以前版本通常使用abstract class代替。简单来说，mixin是为了解决继承方面的问题而引入的机制，Dart为了支持多重继承，引入了mixin关键字，它最大的特殊处在于：mixin定义的类不能有构造方法，这样可以避免继承多个类而产生的父类构造方法冲突。</p>
+<p>mixins的对象是类，mixins绝不是继承，也不是接口，而是一种全新的特性，可以mixins多个类，mixins的使用需要满足一定条件。</p>
+<p>可以参考Flutter基础知识之Dart语音基础</p>
+<p>Flutter</p>
+<ol>
+<li>请简单介绍下Flutter框架，以及它的优缺点？<br>Flutter是Google推出的一套开源跨平台UI框架，可以快速地在Android、iOS和Web平台上构建高质量的原生用户界面。同时，Flutter还是Google新研发的Fuchsia操作系统的默认开发套件。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。Flutter采用现代响应式框架构建，其中心思想是使用组件来构建应用的UI。当组件的状态发生改变时，组件会重构它的描述，Flutter会对比之前的描述，以确定底层渲染树从当前状态转换到下一个状态所需要的最小更改。</li>
+</ol>
+<p>优点</p>
+<p>热重载（Hot Reload），利用Android Studio直接一个ctrl+s就可以保存并重载，模拟器立马就可以看见效果，相比原生冗长的编译过程强很多；<br>一切皆为Widget的理念，对于Flutter来说，手机应用里的所有东西都是Widget，通过可组合的空间集合、丰富的动画库以及分层课扩展的架构实现了富有感染力的灵活界面设计；<br>借助可移植的GPU加速的渲染引擎以及高性能本地代码运行时以达到跨平台设备的高质量用户体验。简单来说就是：最终结果就是利用Flutter构建的应用在运行效率上会和原生应用差不多。<br>缺点</p>
+<p>不支持热更新；<br>三方库有限，需要自己造轮子；<br>Dart语言编写，增加了学习难度，并且学习了Dart之后无其他用处，相比JS和Java来说。<br>2. 介绍下Flutter的理念架构<br>其实也就是下面这张图。</p>
+<p>由上图可知，Flutter框架自下而上分为Embedder、Engine和Framework三层。其中，Embedder是操作系统适配层，实现了渲染 Surface设置，线程设置，以及平台插件等平台相关特性的适配；Engine层负责图形绘制、文字排版和提供Dart运行时，Engine层具有独立虚拟机，正是由于它的存在，Flutter程序才能运行在不同的平台上，实现跨平台运行；Framework层则是使用Dart编写的一套基础视图库，包含了动画、图形绘制和手势识别等功能，是使用频率最高的一层。</p>
+<ol start="3">
+<li>介绍下FFlutter的FrameWork层和Engine层，以及它们的作用</li>
+</ol>
+<p>Flutter的FrameWork层是用Drat编写的框架（SDK），它实现了一套基础库，包含Material（Android风格UI）和Cupertino（iOS风格）的UI界面，下面是通用的Widgets（组件），之后是一些动画、绘制、渲染、手势库等。这个纯 Dart实现的 SDK被封装为了一个叫作 dart:ui的 Dart库。我们在使用 Flutter写 App的时候，直接导入这个库即可使用组件等功能。</p>
+<p>Flutter的Engine层是Skia 2D的绘图引擎库，其前身是一个向量绘图软件，Chrome和 Android均采用 Skia作为绘图引擎。Skia提供了非常友好的 API，并且在图形转换、文字渲染、位图渲染方面都提供了友好、高效的表现。Skia是跨平台的，所以可以被嵌入到 Flutter的 iOS SDK中，而不用去研究 iOS闭源的 Core Graphics &#x2F; Core Animation。Android自带了 Skia，所以 Flutter Android SDK要比 iOS SDK小很多。</p>
+<ol start="4">
+<li>介绍下Widget、State、Context 概念</li>
+</ol>
+<p>Widget：在Flutter中，几乎所有东西都是Widget。将一个Widget想象为一个可视化的组件（或与应用可视化方面交互的组件），当你需要构建与布局直接或间接相关的任何内容时，你正在使用Widget。<br>Widget树：Widget以树结构进行组织。包含其他Widget的widget被称为父Widget(或widget容器)。包含在父widget中的widget被称为子Widget。<br>Context：仅仅是已创建的所有Widget树结构中的某个Widget的位置引用。简而言之，将context作为widget树的一部分，其中context所对应的widget被添加到此树中。一个context只从属于一个widget，它和widget一样是链接在一起的，并且会形成一个context树。<br>State：定义了StatefulWidget实例的行为，它包含了用于”交互&#x2F;干预“Widget信息的行为和布局。应用于State的任何更改都会强制重建Widget。<br>5. 简述Widget的StatelessWidget和StatefulWidget两种状态组件类</p>
+<p>StatelessWidget: 一旦创建就不关心任何变化，在下次构建之前都不会改变。它们除了依赖于自身的配置信息（在父节点构建时提供）外不再依赖于任何其他信息。比如典型的Text、Row、Column、Container等，都是StatelessWidget。它的生命周期相当简单：初始化、通过build()渲染。<br>StatefulWidget: 在生命周期内，该类Widget所持有的数据可能会发生变化，这样的数据被称为State，这些拥有动态内部数据的Widget被称为StatefulWidget。比如复选框、Button等。State会与Context相关联，并且此关联是永久性的，State对象将永远不会改变其Context，即使可以在树结构周围移动，也仍将与该context相关联。当state与context关联时，state被视为已挂载。StatefulWidget由两部分组成，在初始化时必须要在createState()时初始化一个与之相关的State对象。<br>6. StatefulWidget 的生命周期<br>Flutter的Widget分为StatelessWidget和StatefulWidget两种。其中，StatelessWidget是无状态的，StatefulWidget是有状态的，因此实际使用时，更多的是StatefulWidget。StatefulWidget的生命周期如下图。</p>
+<p>initState()：Widget 初始化当前 State，在当前方法中是不能获取到 Context 的，如想获取，可以试试 Future.delayed()<br>didChangeDependencies()：在 initState() 后调用，State对象依赖关系发生变化的时候也会调用。<br>deactivate()：当 State 被暂时从视图树中移除时会调用这个方法，页面切换时也会调用该方法，和Android里的 onPause 差不多。<br>dispose()：Widget 销毁时调用。<br>didUpdateWidget：Widget 状态发生变化的时候调用。<br>7. 简述Widgets、RenderObjects 和 Elements的关系<br>首先看一下这几个对象的含义及作用。</p>
+<p>Widget ：仅用于存储渲染所需要的信息。<br>RenderObject ：负责管理布局、绘制等操作。<br>Element ：才是这颗巨大的控件树上的实体。<br>Widget会被inflate（填充）到Element，并由Element管理底层渲染树。Widget并不会直接管理状态及渲染,而是通过State这个对象来管理状态。Flutter创建Element的可见树，相对于Widget来说，是可变的，通常界面开发中，我们不用直接操作Element,而是由框架层实现内部逻辑。就如一个UI视图树中，可能包含有多个TextWidget(Widget被使用多次)，但是放在内部视图树的视角，这些TextWidget都是填充到一个个独立的Element中。Element会持有renderObject和widget的实例。记住，Widget 只是一个配置，RenderObject 负责管理布局、绘制等操作。</p>
+<p>在第一次创建 Widget 的时候，会对应创建一个 Element， 然后将该元素插入树中。如果之后 Widget 发生了变化，则将其与旧的 Widget 进行比较，并且相应地更新 Element。重要的是，Element 不会被重建，只是更新而已。</p>
+<ol start="8">
+<li>什么是状态管理，你了解哪些状态管理框架？<br>Flutter中的状态和前端React中的状态概念是一致的。React框架的核心思想是组件化，应用由组件搭建而成，组件最重要的概念就是状态，状态是一个组件的UI数据模型，是组件渲染时的数据依据。</li>
+</ol>
+<p>Flutter的状态可以分为全局状态和局部状态两种。常用的状态管理有ScopedModel、BLoC、Redux &#x2F; FishRedux和Provider。详细使用情况和差异可以自行了解。</p>
+<ol start="9">
+<li>简述Flutter的绘制流程</li>
+</ol>
+<p>Flutter的绘制流程如下图所示。</p>
+<p>Flutter只关心向 GPU提供视图数据，GPU的 VSync信号同步到 UI线程，UI线程使用 Dart来构建抽象的视图结构，这份数据结构在 GPU线程进行图层合成，视图数据提供给 Skia引擎渲染为 GPU数据，这些数据通过 OpenGL或者 Vulkan提供给 GPU。</p>
+<ol start="10">
+<li>简述Flutter的线程管理模型<br>默认情况下，Flutter Engine层会创建一个Isolate，并且Dart代码默认就运行在这个主Isolate上。必要时可以使用spawnUri和spawn两种方式来创建新的Isolate，在Flutter中，新创建的Isolate由Flutter进行统一的管理。<br>事实上，Flutter Engine自己不创建和管理线程，Flutter Engine线程的创建和管理是Embeder负责的，Embeder指的是将引擎移植到平台的中间层代码，Flutter Engine层的架构示意图如下图所示。</li>
+</ol>
+<p>在Flutter的架构中，Embeder提供四个Task Runner，分别是Platform Task Runner、UI Task Runner Thread、GPU Task Runner和IO Task Runner，每个Task Runner负责不同的任务，Flutter Engine不在乎Task Runner运行在哪个线程，但是它需要线程在整个生命周期里面保持稳定。</p>
+<ol start="11">
+<li>Flutter 是如何与原生Android、iOS进行通信的？<br>Flutter 通过 PlatformChannel 与原生进行交互，其中 PlatformChannel 分为三种：</li>
+</ol>
+<p>BasicMessageChannel ：用于传递字符串和半结构化的信息。<br>MethodChannel ：用于传递方法调用（method invocation）。<br>EventChannel : 用于数据流（event streams）的通信。<br>同时 Platform Channel 并非是线程安全的 ，更多详细可查阅闲鱼技术的 《深入理解Flutter Platform Channel》</p>
+<ol start="12">
+<li>简述Flutter 的热重载<br>Flutter 的热重载是基于 JIT 编译模式的代码增量同步。由于 JIT 属于动态编译，能够将 Dart 代码编译成生成中间代码，让 Dart VM 在运行时解释执行，因此可以通过动态更新中间代码实现增量同步。</li>
+</ol>
+<p>热重载的流程可以分为 5 步，包括：扫描工程改动、增量编译、推送更新、代码合并、Widget 重建。Flutter 在接收到代码变更后，并不会让 App 重新启动执行，而只会触发 Widget 树的重新绘制，因此可以保持改动前的状态，大大缩短了从代码修改到看到修改产生的变化之间所需要的时间。</p>
+<p>另一方面，由于涉及到状态的保存与恢复，涉及状态兼容与状态初始化的场景，热重载是无法支持的，如改动前后 Widget 状态无法兼容、全局变量与静态属性的更改、main 方法里的更改、initState 方法里的更改、枚举和泛型的更改等。</p>
+<p>可以发现，热重载提高了调试 UI 的效率，非常适合写界面样式这样需要反复查看修改效果的场景。但由于其状态保存的机制所限，热重载本身也有一些无法支持的边界。</p>
+<h1 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h1><p>1 AFNetworking做过断点续传吗？断点续传的主要思路:<br>利用 HTTP 请求头的 content-range实现断点续传（如果content-range不存在就取Content-Length的大小）<br>如果比服务器文件大，重新下载（本地下载的有问题）<br>如果和服务器文件一样，下载完成</p>
+<p>TCP-IP网络<br>应用层-  传输层-   IP层-    网络接口层</p>
+<p>https：<br>公钥都长一样，也就是说即使小王并不知道自己的手上的公钥一定是服务器的，也就是说你可以偷偷把小王手上的公钥换成自己的，然后你再拿着你的私钥，冒充服务器，和小王通信。所以这个时候服务器就需要给自己的公钥做个证明，于是服务器来到权威机构–”证书中心”（certificate authority，简称CA），证书中心用自己的私钥，对服务器的公钥和一些相关信息一起加密，生成”数字证书”（Digital Certificate）。拿到数字证书之后，服务器下次回信的时候就只需要，在信件上附带上数字证书，而小王，手上会有证书中心的公钥，小王用证书中心的公钥打开数字证书，获取服务器的公钥，再用这把公钥进行后续操作，这样一来就不会被骗。</p>
+<p>2 同步&amp;异步 串行&amp;并行 并行&amp;并发<br>同步、异步的区别：指的是能否开启新的线程，同步不开，异步开。<br>串行、并行的区别：指的是任务的执行方式，串行是一个一个的执行任务，并行可同时执行。<br>并行、并发的区别：并行两个或者多个事件在同一时刻发生，并发两个或多个事件在时间间隔内同时交替发生。</p>
+<p>3 ios中事件的响应链(Responder chain)和传递链<br>事件的响应链涉及到的一些概念<br>UIResponder类，是UIKIT中一个用于处理事件响应的基类。窗又上的所有事件触发，都由该类响应(即事件处理入又)。所以，窗又上的View及控制器都是 派生于该类的，例如UIView、UIViewController等。<br>调用UIResponder类提供的方法或属性，我们就可以捕捉到窗又上的所有响应 事件，并进行处理。<br>响应者链条是由多个响应者对象连接起来的链条，其中响应者对象是能处理事 件的对象，所有的View和ViewController都是响应者对象，利用响应者链条能 让多个控件处理同一个触摸事件.<br><img src="https://s2.loli.net/2024/05/28/OMIe2mHdDTPEiQc.png"><br>如上图，响应者链有以下特点:<br>响应者链通常是由 initial view 开始;<br>UIView 的 nextResponder 它的 superview;如果 UIView 已经是其所在的 UIViewController 的 top view，那么 UIView 的 nextResponder 就是 UIViewController;<br>UIViewController 如果有 Super ViewController，那么它的 nextResponder 为其 Super ViewController 最表层的 View;如果没有，那么它的 nextResponder 就是 UIWindow;<br>UIWindow 的 contentView 指向 UIApplication，将其作为 nextResponder;<br>UIApplication 是个响应者链的终点，它的 nextResponder 指向nil，整个responder chain 结束。</p>
+<p>3 内存问题：<br>内存溢出(Out Of Memory，简称OOM)是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。直白点说就是某些原因导致内存不足。<br>而内存泄漏（Memory Leak）是不再用到的内存，没有及时释放。</p>
+<p>4 runloop理解与运用：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5be72e7241d5">参考</a><br>他是一个运行循环，因为他的存在才会导致我们的运行的程序才不会挂掉，我们的事件处理、定时器等等的事件才能有所反应。<br>runloop与线程的关系<br>    1.一个线程与之仅有一个runloop与之对应<br>    2.runloop保存在一个全局的dictory里，线程作为key，value作为runloop<br>    3.线程刚刚开始创建的时候并没有runloop，在第一次获取的时候runloop才开始创建。所以说主线程默认也是没有runloop的 只不过我们开始调用main函数。在main函数中调用了UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));所以他内部是有获取的 所以主线程是存在runloop的。<br>    4.runloop会在线程结束的时候进行销毁，子线程默认是没有开启runloop的。<br>runloop的执行过程<br>    1.通知observer：进入loop<br>    2.通知observer：即将处理timer<br>    3.通知observer：即将处理sources<br>    4.处理blocks<br>runloop的运用：<br>    1.线程保活<br>    2.防止定时器失效</p>
+<p>5 Promise、async 和 await <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d95bbcb9a6cf?utm_campaign=shakespeare&utm_content=note&utm_medium=reader_share&utm_source=weixin">参考</a><br>    回调地狱嵌套多个方法调用会创建错综复杂的代码，会难以理解与调试。当想要实现更复杂的功能时，回调函数也会存在问题。<br>Promise<br>    1.Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了 Promise 对象。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。<br>    2.对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从 pending 变为 fulfilled 和从 pending 变为 rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果。如果改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。<br>    3.Promise构造函数接受一个函数作为参数，该函数的两个参数分别是 resolve 和 reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。resolve 函数的作用是，将 Promise 对象的状态从未完成变为成功（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。reject 函数的作用是，将 Promise 对象的状态从未完成变为失败（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。<br>async<br>    1.async 表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。<br>    2.async 函数返回一个 Promise 对象。<br>    3.async 函数内部 return 语句返回的值，会成为 then 方法回调函数的参数。<br>    4.async 函数内部抛出错误，会导致返回的 Promise 对象变为 reject 状态。抛出的错误对象会被 catch 方法回调函数接收到。<br>    5.async 函数返回的 Promise 对象，必须等到内部所有 await 命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到 return 语句或者抛出错误。也就是说，只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数。<br>await<br>    1.正常情况下，await 命令后面是一个 Promise 对象。如果不是，会被转成一个立即 resolve 的 Promise 对象。<br>    2.await 命令后面的 Promise 对象如果变为 reject 状态，则 reject 的参数会被 catch 方法的回调函数接收到。<br>    3.只要一个 await 语句后面的 Promise 变为 reject，那么整个 async 函数都会中断执行。<br>最常用例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">async function myFunction() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await somethingThatReturnsAPromise();</span><br><span class="line">  &#125; catch (err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">async function myFunction() &#123;// 另一种写法</span><br><span class="line">  await somethingThatReturnsAPromise()</span><br><span class="line">  .catch(function (err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="XCode测试项目和开发项目连接"><a href="#XCode测试项目和开发项目连接" class="headerlink" title="XCode测试项目和开发项目连接"></a>XCode测试项目和开发项目连接</h1><p>1,新建一个测试target<br><img src="https://s2.loli.net/2024/05/28/5wBzaylkR79iKtH.jpg" alt="-w800"><br>2，在开发项目里配置好Pods<br><img src="https://s2.loli.net/2024/05/28/m2VgN1bwPsEU7L4.jpg" alt="-w800"><br>3，测试目标导入开发项目 @testable import 开发项目名称<br><img src="https://s2.loli.net/2024/05/28/65tO9QRbF3NVU4v.jpg" alt="-w800"><br>4，开始测试项目里的接口等。。。。<br>5，注意⚠️打开code coverage会影响SwiftUI的preview,使用SwiftUI必须关闭它。<br><img src="https://s2.loli.net/2024/05/28/uMnOE4bGvilaKVy.jpg" alt="-w800"></p>
+<h1 id="手机流量抓包"><a href="#手机流量抓包" class="headerlink" title="手机流量抓包"></a>手机流量抓包</h1><p>打开charles，设置代理，默认端口8888<br><img src="https://s2.loli.net/2024/05/28/4lp2Eg18ReakPKS.png"><br>找到当前的IP地址</p>
+<p><img src="https://s2.loli.net/2024/05/28/usYRkpaFU1TfBxe.png"></p>
+<p>手机进入同一个Wi-Fi网络，并连接电脑作为代理<br><img src="https://s2.loli.net/2024/05/28/k1YGjpCwSZINEdo.jpg"><br>电脑端允许<br><img src="https://s2.loli.net/2024/05/28/PyU4Dd7Lt5f3NuY.png"><br>开始抓包<br><img src="https://s2.loli.net/2024/05/28/BrCnI1eSsYRGV9h.png"></p>
+<h1 id="用WiresShark抓包"><a href="#用WiresShark抓包" class="headerlink" title="用WiresShark抓包"></a>用WiresShark抓包</h1><p>ip.addr &#x3D;&#x3D; 192.168.0.105 &amp;&amp; tcp.port &#x3D;&#x3D; 8888 &amp;&amp; http.response || http.request<br>ip.src &#x3D;&#x3D; 192.168.0.105 or ip.dst &#x3D;&#x3D; 192.168.0.100 （看一个方向的包流向）<br><img src="https://s2.loli.net/2024/05/28/aIuXARdbwFfTZe6.png"><br><img src="https://s2.loli.net/2024/05/28/kXLxeGKZfAMIW97.png"><br>打开json格式识别<br><img src="https://s2.loli.net/2024/05/28/13afKNXiI6eRlFc.png"><br><img src="https://s2.loli.net/2024/05/28/FuihKA8jx4GRM1r.png"></p>
+<h1 id="XCode使用XIB记得拉一条线"><a href="#XCode使用XIB记得拉一条线" class="headerlink" title="XCode使用XIB记得拉一条线"></a>XCode使用XIB记得拉一条线</h1><p><img src="https://s2.loli.net/2024/05/28/pNm4RnoyxtSXU1K.jpg"></p>
+<h1 id="iOS的APP状态"><a href="#iOS的APP状态" class="headerlink" title="iOS的APP状态"></a>iOS的APP状态</h1><p><img src="https://s2.loli.net/2024/05/28/cTqkLwUloJARMrY.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://git.bt-coin.top">Alfred Zhang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://git.bt-coin.top/2020/04/01/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/">http://git.bt-coin.top/2020/04/01/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84tips/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/">客户端</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/04/02/GoogleChorme%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" title="Google Chorme浏览器插件推荐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Google Chorme浏览器插件推荐</div></div></a></div><div class="next-post pull-right"><a href="/2020/03/27/%E8%B5%9A%E9%92%B1APP/" title="赚钱APP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">赚钱APP</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/04/02/GoogleChorme%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" title="Google Chorme浏览器插件推荐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-02</div><div class="title">Google Chorme浏览器插件推荐</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Alfred Zhang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%8D%93cell%E7%9A%84%E5%88%86%E9%85%8D%E6%AF%94%E4%BE%8B%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">安卓cell的分配比例问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3iOS-cell%E5%A4%8D%E7%94%A8%E5%AF%BC%E8%87%B4%E5%86%85%E5%AE%B9%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">解决iOS cell复用导致内容重复问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MAC%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%88%86%E4%BA%AB%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">MAC局域网内网络路由分享前提条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mac%E7%B3%BB%E7%BB%9F-%E5%86%85%E7%BD%AE%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%A9%BA%E7%99%BD%E8%A7%A3%E5%86%B3-%E5%88%86%E7%B1%BB%EF%BC%9AHBuilderX"><span class="toc-number">4.</span> <span class="toc-text">mac系统 内置浏览器控制台空白解决 分类：HBuilderX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#M1-chip-%E9%80%89%E6%8B%A9Rosetta%E6%A8%A1%E5%BC%8F%E7%9A%84Xcode%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">M1 chip 选择Rosetta模式的Xcode发现的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%B7%A5%E7%A8%8B%E4%B8%AD%E7%9A%84-UIWebView"><span class="toc-number">6.</span> <span class="toc-text">检查工程中的 UIWebView</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS%E5%BC%80%E5%8F%91%E6%89%BE%E4%B8%8D%E5%88%B0Libstdc-6-0-9-files"><span class="toc-number">7.</span> <span class="toc-text">iOS开发找不到Libstdc-.6.0.9-files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Usage"><span class="toc-number">7.0.1.</span> <span class="toc-text">Usage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#For-Device"><span class="toc-number">7.0.2.</span> <span class="toc-text">For Device</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#For-Simulator"><span class="toc-number">7.0.3.</span> <span class="toc-text">For Simulator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download"><span class="toc-number">7.1.</span> <span class="toc-text">Download</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E5%88%B0%E8%8B%B9%E6%9E%9C%E4%B8%80%E7%9B%B4%E5%8D%A1%E4%BD%8F%E9%AA%8C%E8%AF%81%E4%B8%AD%EF%BC%88authentication-with-the-app-store%EF%BC%89%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">8.</span> <span class="toc-text">上传应用到苹果一直卡住验证中（authentication with the app store）问题解决</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#framework%E6%97%A0%E6%B3%95%E6%89%93%E5%8C%85%E6%88%90ipa"><span class="toc-number">9.</span> <span class="toc-text">framework无法打包成ipa</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E6%95%B4iOS%E7%9A%84statusbar%E7%9A%84%E9%A2%9C%E8%89%B2"><span class="toc-number">10.</span> <span class="toc-text">调整iOS的statusbar的颜色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OC%E5%9F%BA%E7%A1%80"><span class="toc-number">11.</span> <span class="toc-text">OC基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter%E5%9F%BA%E7%A1%80"><span class="toc-number">12.</span> <span class="toc-text">Flutter基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%BC%E5%90%88"><span class="toc-number">13.</span> <span class="toc-text">综合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XCode%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E5%92%8C%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E8%BF%9E%E6%8E%A5"><span class="toc-number">14.</span> <span class="toc-text">XCode测试项目和开发项目连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E6%B5%81%E9%87%8F%E6%8A%93%E5%8C%85"><span class="toc-number">15.</span> <span class="toc-text">手机流量抓包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8WiresShark%E6%8A%93%E5%8C%85"><span class="toc-number">16.</span> <span class="toc-text">用WiresShark抓包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XCode%E4%BD%BF%E7%94%A8XIB%E8%AE%B0%E5%BE%97%E6%8B%89%E4%B8%80%E6%9D%A1%E7%BA%BF"><span class="toc-number">17.</span> <span class="toc-text">XCode使用XIB记得拉一条线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS%E7%9A%84APP%E7%8A%B6%E6%80%81"><span class="toc-number">18.</span> <span class="toc-text">iOS的APP状态</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/03/%E8%82%A1%E5%B8%82%E7%9B%B8%E5%85%B3/" title="股市相关">股市相关</a><time datetime="2021-01-02T20:28:26.000Z" title="Created 2021-01-03 04:28:26">2021-01-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/01/%E9%A3%9F%E8%B0%B1%E4%B8%8E%E8%83%BD%E9%87%8F%E7%91%9C%E4%BC%BD/" title="食谱与能量瑜伽">食谱与能量瑜伽</a><time datetime="2021-01-01T12:29:17.000Z" title="Created 2021-01-01 20:29:17">2021-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/11/22/%E7%94%B7%E7%94%9F%E4%BC%9A%E5%AF%B9%E4%B8%8D%E5%96%9C%E6%AC%A2%E7%9A%84%E5%A5%B3%E7%94%9F%E6%9C%89%E5%A4%9A%E6%AE%8B%E5%BF%8D%EF%BC%9F/" title="男生会对不喜欢的女生有多残忍？">男生会对不喜欢的女生有多残忍？</a><time datetime="2020-11-22T10:58:16.000Z" title="Created 2020-11-22 18:58:16">2020-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/30/%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84%E6%95%85%E4%BA%8B%E6%92%AD%E5%AE%A2/" title="能听懂的故事播客">能听懂的故事播客</a><time datetime="2020-08-30T15:46:51.000Z" title="Created 2020-08-30 23:46:51">2020-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/07/21/%E7%9C%81%E9%92%B1APP/" title="省钱APP">省钱APP</a><time datetime="2020-07-21T00:54:20.000Z" title="Created 2020-07-21 08:54:20">2020-07-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Alfred Zhang</div><div class="footer_custom_text">粤ICP备18051266号-1</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const abcjsInit = () => {
+    const abcjsFn = () => {
+      document.querySelectorAll(".abc-music-sheet").forEach(ele => {
+        ABCJS.renderAbc(ele, ele.innerHTML, {responsive: 'resize'})
+      })
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://cdn.jsdelivr.net/npm/abcjs@6.3.0/dist/abcjs-basic-min.min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : window.addEventListener('load', abcjsInit)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.65.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.13.0"></script></div></div></body></html>
